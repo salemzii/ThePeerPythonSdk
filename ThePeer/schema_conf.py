@@ -24,14 +24,3 @@ charge_schema_conf = Schema({
     "amount": And(Use(str)),
     "remark": And(Use(str))
 })
-
-
-d = {
-    "name": "david bill",
-    "identifier": "david",
-    "email": "davidbill0701@gmail.com"
-}
-dd = {"reason":"robby2"}
-
-v = Validator(dd, transaction_refund_schema_conf)
-print(v.validate())

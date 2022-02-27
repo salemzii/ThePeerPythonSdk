@@ -82,7 +82,7 @@ class Client():
         self.set_auth_headers()
         try:
             req = self.request.get(path)
-            return json.loads(req.text)
+            return req
         except Exception as err:
             return err
 
@@ -95,7 +95,7 @@ class Client():
                 req = self.request.post(path, data=data)
                 return json.loads(req.text)
             req = self.request.post(path, data={"reason":"possible fraud"})
-            return json.loads(req.text)
+            return req
         except Exception as err:
             return err
 
@@ -105,7 +105,7 @@ class Client():
 
         try:
             req = self.request.get(path)
-            return json.loads(req.text)
+            return req
 
         except Exception as err:
             return err
@@ -116,7 +116,7 @@ class Client():
 
         try:
             req = self.request.get(path)
-            return json.loads(req.text)
+            return req
         except Exception as err:
             return err
 
@@ -127,10 +127,9 @@ class Client():
         try:
             if data != None and Validator(data, test_recieve_schema_conf).validate():
                 req = self.request.post(path,data=data)
-                print(type(req.text))
-                return json.loads(req.text)
-            req = self.request.post(path, data={ "amount": 10000,"user_reference": "banana-island-ikoyi"})
-            return req.text
+                return req
+            req = self.request.post(path, data={"amount": 10000,"user_reference": "banana-island-ikoyi"})
+            return req
         except Exception as err:
             return err
     
@@ -141,14 +140,8 @@ class Client():
         if Validator(data, charge_schema_conf).validate():
             try:
                 req = self.request.post(path, data=data)
-                return json.loads(req.text)
+                return req
             except Exception as err:
                 return err
         else:
             raise "Invalid Post data"
-
-    
-c = Client("pssk_test_oz2rwadb7o8zp3juxb9zc3nf9ujzjmoofsqwh8u40wihm")
-r = "c33e73e4-8c7d-4459-94ce-07056603790d"
-print(c.get_user_links(r))
-#print(c.test_recieve())
