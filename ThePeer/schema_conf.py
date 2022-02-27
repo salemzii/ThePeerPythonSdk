@@ -1,4 +1,4 @@
-from validators import Validator
+from .validators import Validator
 from schema import Schema, And, Use, Optional, SchemaError
 
 create_user_schema_conf  = Schema({

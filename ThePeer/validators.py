@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 from schema import Schema, And, Use, Optional, SchemaError
 from dataclasses import dataclass
 
@@ -13,6 +15,7 @@ class Validator():
             return True
         except SchemaError:
             return False
+
 
 
 

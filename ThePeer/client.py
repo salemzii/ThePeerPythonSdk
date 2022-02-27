@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 import requests
 import json
-from validators import Validator
-from schema_conf import (create_user_schema_conf, 
+from .validators import Validator
+from .schema_conf import (create_user_schema_conf, 
                             update_user_schema_conf,
                             transaction_refund_schema_conf,
                             test_recieve_schema_conf,
@@ -30,44 +30,44 @@ class Client():
         self.set_auth_headers()
         try:
             req = self.request.get(path)
-            return json.loads(req.text)
+            return req
         except Exception as err:
             return err
 
     
-    def create_user(self, data : dict) -> dict:
+    def create_user(self, data : dict) -> object:
         path = self.base_endpoint + "users"
         self.set_auth_headers()
 
         if Validator(data, create_user_schema_conf).validate():
             try:
                 req = self.request.post(path, data=data)
-                return json.loads(req.text)
+                return req
             except Exception as err:
                 return err
         else:
             raise "invalid post data"
     
 
-    def update_user(self, reference:str, data:dict) -> dict:
+    def update_user(self, reference:str, data:dict) -> object:
         
         path = self.base_endpoint + f"users/{reference}"
         self.set_auth_headers()
         if Validator(data, update_user_schema_conf).validate():
             try:
                 req = self.request.put(path, data=data)
-                return json.loads(req.text)
+                return req
             except Exception as err:
                 return err
         else:
             raise "invalid post data"
     
-    def delete_user(self, reference:str) -> dict:
+    def delete_user(self, reference:str) -> object:
         path = self.base_endpoint + f"users/{reference}"
         self.set_auth_headers()
         try:
             req = self.request.delete(path)
-            return json.loads(req.text)
+            return req
         except Exception as err:
             return err             
 
