@@ -16,3 +16,10 @@ class TestTransactions(unittest.TestCase):
         self._cl.set_auth_headers()
         req = self._cl.get_transaction()
         self.assertEqual(req.status_code, HTTPStatus.OK)
+
+
+    def test_refund_transaction(self):
+        path = self._cl.base_endpoint + "transactions/TRANSACTIONID/refund"
+        self._cl.set_auth_headers()
+        req = self._cl.refund_transaction("TRANSACTIONID", data=None)
+        self.assertEqual(req.status_code, HTTPStatus.OK)
