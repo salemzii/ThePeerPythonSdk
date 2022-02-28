@@ -5,6 +5,9 @@ python SDK for ThePeer payment infrastructure
 # Reference Official Documentation
 https://docs.thepeer.co/
 
+# To install run
+pip install python-thepeer requests dataclasses schema
+
 # Instantiate ThePeer api object
 ```python
 from ThePeer.client import Client
@@ -93,3 +96,5 @@ data = {
 client.test_recieve(data)
 
 ```
+
+
