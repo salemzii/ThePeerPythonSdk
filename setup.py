@@ -1,4 +1,5 @@
 from distutils.core import setup
+import os
 
 def read_file(filename):
     with open(os.path.join(os.path.dirname(__file__), filename)) as file:
@@ -14,7 +15,7 @@ setup(
     author = 'salem ododa',
     author_email = 'salemododa2@gmail.com',
     url = 'https://github.com/salemzii/ThePeerPythonSdk',
-    download_url = 'https://github.com/salemzii/ThePeerPythonSdk/archive/refs/tags/v0.1.0-beta.tar.gz',
+    download_url = 'https://github.com/salemzii/ThePeerPythonSdk/archive/refs/tags/v1.1.0.tar.gz',
     install_requires=["requests", "schema", "dataclasses"],
     keywords = ['python', 'thepeer', 'payment', 'sdk'],
     classifiers=[
