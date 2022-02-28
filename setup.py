@@ -11,7 +11,6 @@ setup(
     download_url = 'https://github.com/salemzii/ThePeerPythonSdk/archive/refs/tags/v0.1.0-beta.tar.gz',
     keywords = ['python', 'thepeer', 'payment', 'sdk'],
     classifiers=[
-    'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
 
@@ -20,3 +19,5 @@ setup(
 ],
 
 )
+
+#https://upload.pypi.org/legacy/ (or https://test.pypi.org/legacy/)
