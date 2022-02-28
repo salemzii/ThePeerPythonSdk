@@ -90,5 +90,6 @@ data = {
 }
 
 """
+client.test_recieve(data)
 
 ```
