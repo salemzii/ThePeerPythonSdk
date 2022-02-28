@@ -56,4 +56,39 @@ pass in only the transactionId and we'd use the default refund data i.e data = {
 """
 client.refund_transaction(transactionId)
 
+
+"""
+This returns all linked accounts associated with a user, It returns the user's account details along with he business the account resides on.
+pass in the linkId to identify and get user's links
+"""
+client.get_user_links(linkId)
+
+
+"""
+Similarly the method returns a linked account details by passing its ID.
+"""
+client.get_user_link(linkId)
+
+
+"""
+This method enables you to charge your user's linked account
+where data = {
+    "amount": ,
+    "remark": ""
+}
+"""
+client.charge(linkId, data)
+
+
+"""
+This method allows you simulate receiving money
+
+data = {
+  "amount": ,
+  "currency": "",
+  "user_reference": ""
+}
+
+"""
+
 ```
